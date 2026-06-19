@@ -27,7 +27,7 @@
     <tbody>
       <tr *ngFor="let product of products" [class.row-sold]="product.status === 'VENDIDO'">
         <td>
-          <img [src]="'https://babyshopbknd.onrender.com/uploads/' + product.images[0]" class="table-img" *ngIf="product.images.length > 0">
+          <img [src]="'assets/fotos/' + product.images[0]" class="table-img" *ngIf="product.images.length > 0">
           <div class="table-img-placeholder" *ngIf="product.images.length === 0"></div>
         </td>
         <td>
