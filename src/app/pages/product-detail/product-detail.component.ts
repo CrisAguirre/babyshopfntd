@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProductService } from '../../../core/services/product.service';
-import { CartService } from '../../../core/services/cart.service';
-import { WhatsappService } from '../../../core/services/whatsapp.service';
-import { Product } from '../../../core/models/product.model';
+import { ProductService } from '../../core/services/product.service';
+import { CartService } from '../../core/services/cart.service';
+import { WhatsappService } from '../../core/services/whatsapp.service';
+import { Product } from '../../core/models/product.model';
 
 @Component({
   selector: 'app-product-detail',

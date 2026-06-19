@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 
 import { HomeRoutingModule } from './home-routing.module';
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '../../shared/shared.module';
 import { SlimBannerComponent } from './components/slim-banner/slim-banner.component';
 import { AboutSectionComponent } from './components/about-section/about-section.component';
 import { FilterSidebarComponent } from './components/filter-sidebar/filter-sidebar.component';
