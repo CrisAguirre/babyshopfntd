@@ -1,0 +1,37 @@
+.not-found-page {
+  padding-top: 80px;
+  min-height: calc(100vh - 200px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.not-found-content {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  background-color: var(--bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border-soft);
+
+  .error-logo {
+    height: 80px;
+    object-fit: contain;
+    filter: grayscale(0.5);
+    opacity: 0.8;
+  }
+
+  .error-code {
+    font-size: 6rem;
+    color: var(--rosa-light);
+    line-height: 1;
+    margin-bottom: 1rem;
+    font-family: 'Outfit', sans-serif;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    color: var(--text-secondary);
+  }
+}

@@ -1,0 +1,49 @@
+.summary-card {
+  background-color: var(--bg-card);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border-soft);
+  position: sticky;
+  top: 100px;
+
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--rosa-light);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
+.summary-divider {
+  border: 0;
+  border-top: 1px dashed var(--border-soft);
+  margin: 1.5rem 0;
+}
+
+.total-row {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--negro);
+
+  .total-price {
+    color: var(--rosa-dark);
+    font-size: 1.5rem;
+  }
+}
+
+.help-text {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.4;
+}

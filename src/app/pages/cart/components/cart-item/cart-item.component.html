@@ -1,0 +1,21 @@
+<div class="cart-item-card">
+  <img [src]="coverImage" [alt]="item.product.name" class="item-img" [routerLink]="['/producto', item.product._id]">
+  
+  <div class="item-details">
+    <h3 [routerLink]="['/producto', item.product._id]">{{ item.product.name }}</h3>
+    <div class="item-meta">
+      <span>Talla: <strong>{{ item.product.size }}</strong></span>
+      <span *ngIf="item.product.brand">Marca: <strong>{{ item.product.brand }}</strong></span>
+    </div>
+  </div>
+  
+  <div class="item-price">
+    ${{ item.product.price | number }} COP
+  </div>
+  
+  <div class="item-actions">
+    <button class="btn-remove" (click)="onRemove()" title="Eliminar del carrito">
+      <span class="material-icons-round">delete_outline</span>
+    </button>
+  </div>
+</div>

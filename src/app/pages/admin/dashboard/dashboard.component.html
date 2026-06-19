@@ -1,0 +1,52 @@
+<div class="dashboard-header mb-4">
+  <h1>Resumen de la Tienda</h1>
+  <p class="text-muted">Estadísticas rápidas de tu inventario</p>
+</div>
+
+<div class="loading-state" *ngIf="loading">
+  <div class="spinner"></div> Cargando estadísticas...
+</div>
+
+<div class="stats-grid" *ngIf="!loading && stats">
+  
+  <div class="stat-card">
+    <div class="stat-icon bg-blue">
+      <span class="material-icons-round">inventory_2</span>
+    </div>
+    <div class="stat-info">
+      <h3>Total Productos</h3>
+      <p class="stat-value">{{ stats.total }}</p>
+    </div>
+  </div>
+
+  <div class="stat-card">
+    <div class="stat-icon bg-green">
+      <span class="material-icons-round">check_circle</span>
+    </div>
+    <div class="stat-info">
+      <h3>Disponibles (Activos)</h3>
+      <p class="stat-value">{{ stats.activos }}</p>
+    </div>
+  </div>
+
+  <div class="stat-card">
+    <div class="stat-icon bg-red">
+      <span class="material-icons-round">sell</span>
+    </div>
+    <div class="stat-info">
+      <h3>Vendidos</h3>
+      <p class="stat-value">{{ stats.vendidos }}</p>
+    </div>
+  </div>
+
+  <div class="stat-card">
+    <div class="stat-icon bg-gray">
+      <span class="material-icons-round">visibility_off</span>
+    </div>
+    <div class="stat-info">
+      <h3>Desactivados</h3>
+      <p class="stat-value">{{ stats.desactivados }}</p>
+    </div>
+  </div>
+
+</div>

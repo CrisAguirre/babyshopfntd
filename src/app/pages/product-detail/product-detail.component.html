@@ -1,0 +1,81 @@
+<app-header></app-header>
+
+<main class="detail-page">
+  <div class="container mt-5 mb-5">
+    <button class="btn btn-outline back-btn mb-4" (click)="goBack()">
+      <span class="material-icons-round">arrow_back</span> Volver al catálogo
+    </button>
+
+    <div *ngIf="loading" class="loading-state">
+      <div class="skeleton-gallery"></div>
+      <div class="skeleton-info"></div>
+    </div>
+
+    <div *ngIf="error" class="error-state text-center">
+      <h3>Producto no encontrado</h3>
+      <p class="text-muted">El producto que buscas ya no está disponible o el enlace es incorrecto.</p>
+      <button class="btn btn-primary mt-3" (click)="goBack()">Ver más ropa</button>
+    </div>
+
+    <div *ngIf="!loading && !error && product" class="product-grid">
+      <!-- Image Gallery Column -->
+      <div class="gallery-col">
+        <app-image-gallery [images]="product.images"></app-image-gallery>
+      </div>
+
+      <!-- Info Column -->
+      <div class="info-col">
+        <div class="meta-tags mb-2">
+          <span class="badge badge-gender">{{ product.gender | titlecase }}</span>
+          <span class="badge badge-condition">★ {{ product.condition }}</span>
+          <span class="badge badge-brand" *ngIf="product.brand">{{ product.brand }}</span>
+        </div>
+
+        <h1 class="product-title">{{ product.name }}</h1>
+        <div class="product-price mb-3">${{ product.price | number }} COP</div>
+
+        <div class="status-alert sold-alert mb-3" *ngIf="product.status === 'VENDIDO'">
+          <span class="material-icons-round">sell</span>
+          Este artículo ya ha sido vendido.
+        </div>
+
+        <div class="attributes mb-4">
+          <div class="attribute">
+            <span class="attr-label">Talla:</span>
+            <span class="attr-value">{{ product.size }}</span>
+          </div>
+          <div class="attribute">
+            <span class="attr-label">Categoría:</span>
+            <span class="attr-value">{{ product.category | titlecase }}</span>
+          </div>
+        </div>
+
+        <div class="description mb-4">
+          <h3>Descripción</h3>
+          <p>{{ product.description }}</p>
+          <div class="eco-note mt-2">
+            <span class="material-icons-round">eco</span>
+            Al comprar esta prenda, le das una segunda oportunidad y ayudas al planeta. 🌍
+          </div>
+        </div>
+
+        <div class="actions" *ngIf="product.status !== 'VENDIDO'">
+          <button class="btn btn-primary btn-block mb-3 btn-lg" 
+                  (click)="addToCart()" 
+                  [disabled]="isInCart">
+            <span class="material-icons-round">{{ isInCart ? 'check_circle' : 'add_shopping_cart' }}</span>
+            {{ isInCart ? 'Agregado al Carrito' : 'Agregar al Carrito' }}
+          </button>
+          
+          <button class="btn btn-outline btn-block btn-lg" (click)="askOnWhatsApp()">
+            <span class="material-icons-round">forum</span>
+            Preguntar por WhatsApp
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<app-footer></app-footer>
+<app-whatsapp-button></app-whatsapp-button>

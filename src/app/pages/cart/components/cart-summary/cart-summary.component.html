@@ -1,0 +1,27 @@
+<div class="summary-card">
+  <h3>Resumen del Pedido</h3>
+  
+  <div class="summary-row mt-4">
+    <span>Subtotal ({{ itemCount }} artículos)</span>
+    <span>${{ total | number }} COP</span>
+  </div>
+  
+  <div class="summary-row">
+    <span>Envío</span>
+    <span class="text-muted">Por calcular</span>
+  </div>
+  
+  <hr class="summary-divider">
+  
+  <div class="summary-row total-row">
+    <span>Total Estimado</span>
+    <span class="total-price">${{ total | number }} COP</span>
+  </div>
+
+  <div class="checkout-actions mt-4">
+    <button class="btn btn-whatsapp btn-block btn-lg" (click)="onCheckout()">
+      <span class="material-icons-round">whatsapp</span> Pedir por WhatsApp
+    </button>
+    <p class="help-text mt-3">Al hacer clic, se abrirá un chat de WhatsApp con el detalle de tu pedido para coordinar el pago y envío directamente con nosotros. 💕</p>
+  </div>
+</div>

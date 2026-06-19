@@ -1,0 +1,96 @@
+.d-flex { display: flex; }
+.justify-content-between { justify-content: space-between; }
+.align-items-center { align-items: center; }
+.text-sm { font-size: 0.85rem; }
+
+.table-responsive {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border-soft);
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  
+  th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  th {
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    
+    &:first-child { border-top-left-radius: var(--radius-md); }
+    &:last-child { border-top-right-radius: var(--radius-md); }
+  }
+
+  tbody tr {
+    transition: background-color var(--transition-fast);
+    
+    &:hover {
+      background-color: rgba(245, 237, 228, 0.3); /* very light bg-secondary */
+    }
+    
+    &:last-child td {
+      border-bottom: none;
+    }
+  }
+}
+
+.table-img, .table-img-placeholder {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+}
+
+.table-img-placeholder {
+  background-color: var(--bg-secondary);
+}
+
+.status-badge {
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  
+  &.activo { background-color: #d1e7dd; color: #0f5132; }
+  &.desactivado { background-color: #e2e3e5; color: #41464b; }
+  &.vendido { background-color: #f8d7da; color: #842029; }
+}
+
+.row-sold {
+  opacity: 0.6;
+}
+
+.actions-cell {
+  display: flex;
+  gap: 8px;
+  
+  .btn-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 4px;
+    transition: background var(--transition-fast);
+    
+    &:hover { background-color: var(--bg-secondary); }
+    
+    .material-icons-round { font-size: 20px; }
+  }
+  
+  .text-info { color: #0dcaf0; }
+  .text-success { color: #198754; }
+  .text-warning { color: #ffc107; }
+  .text-danger { color: #dc3545; }
+}

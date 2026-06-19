@@ -1,0 +1,15 @@
+<div class="product-grid-container">
+  <div *ngIf="loading" class="loading-state">
+    <!-- Placeholders para skeleton loading -->
+    <div class="skeleton-card" *ngFor="let i of [1,2,3,4,5,6]"></div>
+  </div>
+
+  <div *ngIf="!loading && products.length > 0" class="grid-wrapper">
+    <app-product-card *ngFor="let product of products" [product]="product"></app-product-card>
+  </div>
+
+  <div *ngIf="!loading && products.length === 0" class="empty-state text-center mt-5 mb-5">
+    <h3>No se encontraron productos</h3>
+    <p class="text-muted mt-2">Intenta con otros filtros de búsqueda.</p>
+  </div>
+</div>

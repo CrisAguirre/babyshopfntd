@@ -1,0 +1,26 @@
+<div class="product-card">
+  <div class="card-image-wrapper" [routerLink]="['/producto', product._id]">
+    <img [src]="coverImage" [alt]="product.name" class="product-img" loading="lazy">
+    <div class="size-badge">{{ product.size }}</div>
+    <div class="status-overlay" *ngIf="product.status === 'VENDIDO'">
+      <span>VENDIDO</span>
+    </div>
+  </div>
+
+  <div class="card-content">
+    <div class="product-meta">
+      <span class="product-brand" *ngIf="product.brand">{{ product.brand }}</span>
+      <span class="product-condition">★ {{ product.condition }}</span>
+    </div>
+    
+    <h3 class="product-title" [routerLink]="['/producto', product._id]">{{ product.name }}</h3>
+    
+    <div class="price-row">
+      <span class="product-price">${{ product.price | number }} COP</span>
+    </div>
+    
+    <button class="btn btn-outline btn-block" [routerLink]="['/producto', product._id]" [disabled]="product.status === 'VENDIDO'">
+      {{ product.status === 'VENDIDO' ? 'No Disponible' : 'Ver Detalle 💕' }}
+    </button>
+  </div>
+</div>

@@ -1,1 +1,212 @@
-/* You can add global styles to this file, and also import other style files */
+/* Sistema de Diseño: Nursery Elegance */
+:root {
+  /* Paleta principal */
+  --rosa-bebe: #F2A7A5;
+  --azul-cielo: #A4BCD3;
+  --beige-suave: #E5D4C0;
+  --marron-calido: #8C7365;
+  --negro: #000000;
+  
+  /* Derivados UI */
+  --bg-primary: #FAF8F5;
+  --bg-secondary: #F5EDE4;
+  --bg-card: #FFFFFF;
+  --rosa-light: #F8D4D3;
+  --rosa-dark: #D9908E;
+  --azul-light: #D1DEE9;
+  --text-primary: #1A1A1A;
+  --text-secondary: #8C7365;
+  --text-muted: #B3A49A;
+  
+  /* Utilidades */
+  --border-soft: rgba(140, 115, 101, 0.15);
+  --shadow-soft: 0 4px 20px rgba(140, 115, 101, 0.08);
+  --shadow-hover: 0 8px 30px rgba(140, 115, 101, 0.12);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+  
+  /* Transiciones */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+}
+
+/* Reset Global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tipografía */
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--negro);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; }
+h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; }
+h3 { font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 600; }
+
+h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--rosa-dark);
+}
+
+/* Botones Base */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-full);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  border: 1px solid transparent;
+  gap: 0.5rem;
+}
+
+.btn-primary {
+  background-color: var(--rosa-bebe);
+  color: white;
+  box-shadow: 0 4px 15px rgba(242, 167, 165, 0.4);
+}
+
+.btn-primary:hover {
+  background-color: var(--rosa-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(242, 167, 165, 0.5);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border-color: var(--rosa-bebe);
+  color: var(--rosa-bebe);
+}
+
+.btn-outline:hover {
+  background-color: var(--rosa-light);
+  color: var(--rosa-dark);
+}
+
+.btn-whatsapp {
+  background-color: #25D366;
+  color: white;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+}
+
+.btn-whatsapp:hover {
+  background-color: #128C7E;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Utilidades Layout */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.text-center { text-align: center; }
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+.mt-5 { margin-top: 3rem; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+.mb-5 { margin-bottom: 3rem; }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--beige-suave);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--marron-calido);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease forwards;
+}

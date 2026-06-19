@@ -1,0 +1,14 @@
+<div class="gallery-container">
+  <div class="main-image-wrapper">
+    <img [src]="mainImage" alt="Vista del producto" class="main-image animate-fade-in">
+  </div>
+  
+  <div class="thumbnails" *ngIf="images && images.length > 1">
+    <div class="thumb-wrapper" 
+         *ngFor="let img of images" 
+         [class.active]="mainImage === serverUrl + img"
+         (click)="setMainImage(img)">
+      <img [src]="serverUrl + img" alt="Miniatura">
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+.product-grid-container {
+  width: 100%;
+}
+
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.loading-state {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+
+  .skeleton-card {
+    height: 380px;
+    background: linear-gradient(90deg, var(--bg-secondary) 25%, var(--rosa-light) 50%, var(--bg-secondary) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: var(--radius-md);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@media (max-width: 576px) {
+  .grid-wrapper {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+  .loading-state .skeleton-card {
+    height: 280px;
+  }
+}

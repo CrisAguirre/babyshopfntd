@@ -1,0 +1,79 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <div>
+    <h1>Inventario de Productos</h1>
+    <p class="text-muted">Administra tu catálogo de ropita</p>
+  </div>
+  <a routerLink="/admin/productos/nuevo" class="btn btn-primary">
+    <span class="material-icons-round">add</span> Nuevo Producto
+  </a>
+</div>
+
+<div class="loading-state" *ngIf="loading">
+  <div class="spinner"></div> Cargando inventario...
+</div>
+
+<div class="table-responsive" *ngIf="!loading">
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>Foto</th>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Talla</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products" [class.row-sold]="product.status === 'VENDIDO'">
+        <td>
+          <img [src]="'http://localhost:5000/uploads/' + product.images[0]" class="table-img" *ngIf="product.images.length > 0">
+          <div class="table-img-placeholder" *ngIf="product.images.length === 0"></div>
+        </td>
+        <td>
+          <strong>{{ product.name }}</strong>
+          <div class="text-muted text-sm">{{ product.category }}</div>
+        </td>
+        <td>${{ product.price | number }}</td>
+        <td>{{ product.size }}</td>
+        <td>
+          <span class="status-badge" [ngClass]="product.status.toLowerCase()">
+            {{ product.status }}
+          </span>
+        </td>
+        <td class="actions-cell">
+          <button class="btn-icon text-info" [routerLink]="['/admin/productos/editar', product._id]" title="Editar">
+            <span class="material-icons-round">edit</span>
+          </button>
+          
+          <button class="btn-icon text-success" 
+                  *ngIf="product.status === 'ACTIVO'" 
+                  (click)="markAsSold(product)" 
+                  title="Marcar como Vendido">
+            <span class="material-icons-round">monetization_on</span>
+          </button>
+          
+          <button class="btn-icon" 
+                  [ngClass]="product.status === 'ACTIVO' ? 'text-warning' : 'text-success'"
+                  *ngIf="product.status !== 'VENDIDO'"
+                  (click)="toggleStatus(product)" 
+                  [title]="product.status === 'ACTIVO' ? 'Ocultar' : 'Activar'">
+            <span class="material-icons-round">
+              {{ product.status === 'ACTIVO' ? 'visibility_off' : 'visibility' }}
+            </span>
+          </button>
+
+          <button class="btn-icon text-danger" (click)="deleteProduct(product._id)" title="Eliminar">
+            <span class="material-icons-round">delete</span>
+          </button>
+        </td>
+      </tr>
+      
+      <tr *ngIf="products.length === 0">
+        <td colspan="6" class="text-center py-4 text-muted">
+          No hay productos en el inventario.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

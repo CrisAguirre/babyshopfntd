@@ -1,0 +1,23 @@
+<header [class.scrolled]="isScrolled">
+  <div class="container header-container">
+    <a routerLink="/" class="logo">
+      <img src="assets/logos/logo.png" alt="Shop Baby Shop Logo">
+      <div class="logo-text">
+        <span class="brand-name">Shop Baby</span>
+        <span class="brand-tag">Ropa y Artículos para Bebé</span>
+      </div>
+    </a>
+
+    <nav class="desktop-nav">
+      <a routerLink="/" fragment="catalogo" class="nav-link">Catálogo</a>
+      <a routerLink="/" fragment="nosotros" class="nav-link">Nosotros</a>
+    </nav>
+
+    <div class="header-actions">
+      <a routerLink="/carrito" class="cart-btn">
+        <span class="material-icons-round">shopping_bag</span>
+        <span class="cart-badge" *ngIf="cartItemCount > 0">{{ cartItemCount }}</span>
+      </a>
+    </div>
+  </div>
+</header>
