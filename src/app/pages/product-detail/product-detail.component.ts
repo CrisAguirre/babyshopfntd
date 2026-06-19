@@ -44,12 +44,12 @@ export class ProductDetailComponent implements OnInit {
     this.loading = true;
     this.error = false;
     this.productService.getProductById(id).subscribe({
-      next: (prod) => {
+      next: (prod: Product) => {
         this.product = prod;
         this.isInCart = this.cartService.isInCart(prod._id);
         this.loading = false;
       },
-      error: (err) => {
+      error: (err: any) => {
         console.error('Error loading product', err);
         this.error = true;
         this.loading = false;
