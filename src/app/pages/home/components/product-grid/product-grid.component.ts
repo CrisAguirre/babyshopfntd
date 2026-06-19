@@ -9,17 +9,36 @@ import { Product } from '../../../../core/models/product.model';
 })
 export class ProductGridComponent implements OnInit {
   products: Product[] = [];
+  categories: string[] = [];
+  selectedCategory: string = '';
   loading = true;
 
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
+    this.loadCategories();
+    this.loadProducts();
+  }
+
+  loadCategories() {
+    this.productService.getCategories().subscribe({
+      next: (cats) => this.categories = cats,
+      error: (err) => console.error('Error loading categories', err)
+    });
+  }
+
+  filterByCategory(category: string) {
+    this.selectedCategory = category;
     this.loadProducts();
   }
 
   loadProducts() {
     this.loading = true;
-    this.productService.getProducts().subscribe({
+    const filters: any = { limit: 100 };
+    if (this.selectedCategory) {
+      filters.category = this.selectedCategory;
+    }
+    this.productService.getProducts(filters).subscribe({
       next: (res) => {
         this.products = res.products;
         this.loading = false;

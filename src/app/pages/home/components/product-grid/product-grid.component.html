@@ -1,4 +1,18 @@
 <div class="product-grid-container">
+  <!-- Filtros por Categoría -->
+  <div class="product-filters mb-4 text-center">
+    <button class="btn btn-outline-primary m-1" 
+            [class.active]="selectedCategory === ''" 
+            (click)="filterByCategory('')">
+      Todos
+    </button>
+    <button class="btn btn-outline-primary m-1" 
+            *ngFor="let cat of categories" 
+            [class.active]="selectedCategory === cat" 
+            (click)="filterByCategory(cat)">
+      {{ cat }}
+    </button>
+  </div>
   <div *ngIf="loading" class="loading-state">
     <!-- Placeholders para skeleton loading -->
     <div class="skeleton-card" *ngFor="let i of [1,2,3,4,5,6]"></div>
