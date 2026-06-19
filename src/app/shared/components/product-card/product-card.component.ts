@@ -11,7 +11,7 @@ export class ProductCardComponent {
 
   get coverImage(): string {
     if (this.product.images && this.product.images.length > 0) {
-      return `http://localhost:5000/uploads/${this.product.images[0]}`;
+      return `https://babyshopbknd.onrender.com/uploads/${this.product.images[0]}`;
     }
     return 'assets/placeholder-baby.jpg';
   }

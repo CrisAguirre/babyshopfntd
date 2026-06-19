@@ -7,7 +7,7 @@ import { Product, PaginatedResponse, ProductStatus } from '../models/product.mod
   providedIn: 'root'
 })
 export class ProductService {
-  private apiUrl = 'http://localhost:5000/api';
+  private apiUrl = 'https://babyshopbknd.onrender.com/api';
 
   constructor(private http: HttpClient) { }
 

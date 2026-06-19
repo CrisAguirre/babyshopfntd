@@ -12,7 +12,7 @@ export class CartItemComponent {
 
   get coverImage(): string {
     if (this.item.product.images && this.item.product.images.length > 0) {
-      return `http://localhost:5000/uploads/${this.item.product.images[0]}`;
+      return `https://babyshopbknd.onrender.com/uploads/${this.item.product.images[0]}`;
     }
     return 'assets/placeholder-baby.jpg';
   }

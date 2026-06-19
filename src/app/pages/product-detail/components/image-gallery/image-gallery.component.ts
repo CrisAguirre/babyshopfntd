@@ -9,7 +9,7 @@ export class ImageGalleryComponent implements OnChanges {
   @Input() images: string[] = [];
   
   mainImage: string = '';
-  serverUrl = 'http://localhost:5000/uploads/';
+  serverUrl = 'https://babyshopbknd.onrender.com/uploads/';
 
   ngOnChanges(): void {
     if (this.images && this.images.length > 0) {
